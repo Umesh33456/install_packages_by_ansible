@@ -7,4 +7,9 @@
   pre_tasks: 
   - name: install python 
     raw: sudo test -e /usr/bin/python || (sudo apt update && sudo apt install -y python-minimal)
+  tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: latest   
  
