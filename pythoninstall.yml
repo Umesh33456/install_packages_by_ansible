@@ -10,6 +10,6 @@
   tasks:
   - name: install nginx
     apt:
-      name: nginx
-      state: absent   
+      name: apache2
+      state: latest   
  
