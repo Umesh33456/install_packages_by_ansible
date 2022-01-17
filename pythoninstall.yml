@@ -11,5 +11,5 @@
   - name: install nginx
     apt:
       name: nginx
-      state: latest   
+      state: absent   
  
