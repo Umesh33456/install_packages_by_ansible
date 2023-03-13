@@ -23,6 +23,10 @@
     ansible.builtin.service:
       name: apache2
       enabled: yes
+  - name: Ensure Index Removed 
+    ansible.builtin.file: 
+      path: /var/www/html/index.html 
+      state: absent     
   - name: ensure ulr cloned
     ansible.builtin.git:
       dest: /var/www/html
