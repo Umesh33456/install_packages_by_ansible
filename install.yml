@@ -1,0 +1,29 @@
+---
+- name: Update web servers
+  become: yes
+  gather_facts: no
+  hosts: aws_ec2
+  tasks:
+  - name: ensure system upto date
+    ansible.builtin.apt:
+     update_cache: yes
+  - name: ensure installed apache2
+    ansible.builtin.apt:
+      name: apache2
+      state: present
+  - name: ensure installed git
+    ansible.builtin.apt:
+      name: git
+      state: present
+  - name: ensure apache2 started
+    ansible.builtin.service:
+       name: apache2
+       state: started
+  - name: ensure apache2 enabled
+    ansible.builtin.service:
+      name: apache2
+      enabled: yes
+  - name: ensure ulr cloned
+    ansible.builtin.git:
+      dest: /var/www/html
+      repo: https://github.com/ravi2krishna/ecomm.git
